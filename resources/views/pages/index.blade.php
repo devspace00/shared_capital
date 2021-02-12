@@ -17,7 +17,7 @@
 			<img src="image/Logo.png" id="icon" alt="User Icon" />
 			<h1>Shared Capital</h1>
 			<br>
-{{-- 			
+			{{-- 			
 			@if(isset(Auth::user()->email))
 				<script>window.location="Transaction_History";</script>
 			@endif --}}
@@ -44,11 +44,16 @@
 			<!-- Login Form -->
 			<form action="index" method="POST">
 				{{ csrf_field() }}
+				@if (\Session::has('error'))
+					<div class="alert alert-warning">
+						{!! \Session::get('error') !!}
+					</div>
+				@endif
 				<input type="text" name="username" placeholder="Username" autocomplete="off"> <br>
 				<span style="color: red">@error('username'){{$message}}@enderror</span>
 				<br>
 				<input type="password" name="password" placeholder="Password"> <br>
-				<span style="color: red">@error('password'){{$message}}@enderror</span>
+				<span style="color: red">@error('error'){{$message}}@enderror</span>
 				<br>
 				<button type="submit" name="login">
 					{{-- <a href="{{ route('transHistory') }}" style="color: white; font-size:medium;">Login</a> --}}

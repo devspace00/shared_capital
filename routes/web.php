@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\mainController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\addData;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\passData;
 use App\Http\Controllers\userAuth;
 use App\Http\Controllers\webPages;
+use Illuminate\Auth\Events\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ use App\Http\Controllers\webPages;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::post('index', [LoginController::class, 'login']);
+
 
 Route::get('membersProfile', function(){
     return view('pages.membersProfile');
@@ -36,11 +41,10 @@ Route::get('Account', [mainController::class, 'account']);
 Route::post('Account', [mainController::class, 'addClient']);
 Route::get('Members_History', [mainController::class, 'clientHistory']);
 Route::get('Members_List', [mainController::class, 'clientList']);
-Route::get('Transaction_History', [mainController::class, 'transactionList']);
+Route::get('Transaction_History', [mainController::class, 'transactionList'])->middleware('auth');
 Route::post('Transactions', [passData::class, 'addTransaction']);
 // Route::get('edit/{client_id}', [mainController::class, 'showData']);
 // Route::post('edit', [mainController::class, 'update']);
-Route::post('index', [userAuth::class, 'userLogin']);
 // Route::post('index', [login::class, 'checklogin']);
 
 Route::get('/index', function () {
