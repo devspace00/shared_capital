@@ -1,0 +1,39 @@
+/*Table Style*/
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 12px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+table#cashInTable th {
+    background-color: rgb(68, 195, 238);
+    color: white;
+}
+
+#back{
+background-color: #56baed;
+border: none;
+color: white;
+text-align: center;
+text-decoration: none;
+text-transform: uppercase;
+font-size: 13px;
+-webkit-border-radius: 5px 5px 5px 5px;
+border-radius: 5px 5px 5px 5px;
+}
+#back:hover {
+background-color: #39ace7;
+}
+#back:active {
+-moz-transform: scale(0.95);
+-webkit-transform: scale(0.95);
+-o-transform: scale(0.95);
+-ms-transform: scale(0.95);
+transform: scale(0.95);
+}

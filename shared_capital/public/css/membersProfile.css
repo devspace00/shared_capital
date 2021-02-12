@@ -1,0 +1,17 @@
+/*Table Style*/
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 12px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+table#cashInTable th {
+    background-color: rgb(68, 195, 238);
+    color: white;
+}
